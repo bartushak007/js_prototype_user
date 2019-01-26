@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>js</title>
+  <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=ZCOOL+KuaiLe" rel="stylesheet">
+  <link rel="stylesheet" class="list__link" href="css/style.css">
+</head>
+<body id="rrr">
+  
+  <div class="pop-up--hidden pop-up">
+    <div class="pop-up__content">
+      <button class="pop-up__close-btn">x</button>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat debitis nemo rerum quos illo non inventore iure saepe expedita molestiae dolorem, numquam blanditiis placeat possimus totam quidem nihil reiciendis. Libero!
+    </div>
+  </div>
+  <div class="registration">
+    <div class="registration__log-in">
+      <form name="signIn" class="js-validation__form">
+        <h3 class="registration__paragraph" >Log in</h3>
+        <div><label for="name">Enter your name</label></div>
+        <div><input class="registration__field js-firstName js-required" name="firstName" id="name" type="text" placeholder="name"></div>
+        <div><label for="password">Enter your password</label></div>
+        <div><input class="registration__field js-password js-required" name="password" id="password" type="password" placeholder="password"></div>
+        <div><input class="registration__btn" type="submit" value="submit" ></div>
+      </form>
+    </div>
+    <div class="registration__create">
+      <h3 class="registration__paragraph" >Create Account</h3>
+      <form  name="createAccount" class="js-validation__form">
+        <div><label for="create-name">Enter your name</label></div>
+        <div><input class="registration__field js-required js-firstName" name="firstName" id="create-name" type="text" placeholder="name"></div>
+        <div><label for="createPassword">Enter your password</label></div>
+        <div><input class="registration__field js-password js-required" name="password" id="createPasswordSecond" type="password" placeholder="password"></div>
+        <div><label for="createRepeatPassword">Confirm your password</label></div>
+        <div><input class="registration__field js-confirm js-required" name="confirmPassword" id="createRepeatPassword" data-confirmId="createPasswordSecond" type="password" placeholder=" repeat password"></div>
+        <div><label for="isAdmin">Are you admin</label></div>
+        <div><input type="checkbox" id="isAdmin" name="isadmin"></div>
+        <div><input class="registration__btn" type="submit" value="submit" name='submit'></div>    
+      </form>    
+    </div>
+  </div>
+  <header class="header js-none">
+    <div class="header__wrap">
+      <button class="log-out header__btn">Log out</button>
+      <button class="change-parol header__btn pop-up-btn" >Change parol & name</button>
+      <button class="add-news header__btn pop-up-btn js-none">Add</button>
+      <button class="delete-news header__btn pop-up-btn js-none">Delete</button>
+      <div class="header__user-name" >user</div>
+    </div>
+  </header>
+  <div class="news js-none" >
+    <article class="news__article">
+      <h2>First news</h2>
+      <p class="news__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, quam voluptatibus soluta. Officia, doloremque, voluptates! Repellendus beatae aut quam ut, quod quaerat, amet sit itaque vero est dicta nihil repudiandae.</p>
+    </article>
+    <article class="news__article">
+      <h2>Second news</h2>
+      <p class="news__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio architecto culpa atque corrupti. Explicabo odio sapiente, natus quo ipsa, labore ratione dolor placeat consequuntur repudiandae reprehenderit odit maxime ab veniam!</p>
+    </article>
+    <article class="news__article">
+      <h2>Third news</h2>
+      <p class="news__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus deserunt tempora commodi at maxime, sed amet dolores neque ipsum officia dignissimos, reprehenderit, reiciendis, voluptate? Natus, rerum quia ratione fugiat soluta.</p>
+    </article>
+  </div>
+  
+  <script src="js/validationForm.js" ></script> 
+  <script src="js/main.js" ></script> 
+  <script src="js/popup.js" ></script>   
+</body>
+</html>

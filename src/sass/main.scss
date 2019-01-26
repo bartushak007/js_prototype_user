@@ -1,0 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "ZCOOL KuaiLe", cursive;
+  color: #009300;
+  background: #dddddd;
+}
+
+input[type="checkbox"] {
+  margin: 25px 0;
+  width: 40px;
+  height: 40px;
+}
+
+@import "registr";
+@import "news";
+@import "popup";
+
+.header {
+  &__wrap {
+    margin: 0 auto;
+    width: 90%;
+  }
+
+  text-align: right;
+  padding: 20px;
+  background: #333333;
+  border-bottom: 2px solid #009300;
+
+  &__btn {
+    background: none;
+    border: none;
+    color: #009300;
+    margin: 0 7px;
+    transition: 0.5s;
+    font-size: 20px;
+    font-family: "ZCOOL KuaiLe", cursive;
+    border-bottom: 1px solid transparent;
+
+    &:hover {
+      text-decoration: underline;
+      border-bottom: 1px solid #555555;
+      color: #555555;
+      cursor: pointer;
+    }
+  }
+
+  &__user-name {
+    display: inline-block;
+    color: #a13838;
+    margin: 0 7px;
+    font-size: 20px;
+    text-transform: uppercase;
+  }
+
+  &__user-name--admin {
+    &:after {
+      content: "A";
+      border: solid 2px;
+      border-radius: 50px;
+      display: inline-block;
+      padding: 7px 10px;
+      margin: 0 7px;
+    }
+  }
+}
+
+.js-none {
+  display: none;
+}
+
+.error {
+  display: block;
+  width: 263px;
+  margin: 0 auto;
+  color: #e26b6b;
+  border: solid 1px #f5f1f1;
+  padding: 1px 10px;
+  border-radius: 3px;
+  background: #fbfbfb;
+  font-family: "VT323", monospace;
+  font-size: 20px;
+}
+
+.errorField {
+  color: #e26b6b;
+  outline: solid 1px #e26b6b;
+}
+
+.element {
+  margin: 5px 0;
+}

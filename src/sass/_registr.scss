@@ -1,0 +1,40 @@
+.registration {
+  margin-top: 50px;
+  text-align: center;
+  width: 500px;
+  margin: 0 auto;
+  font-size: 30px;
+
+  &__paragraph {
+    margin: 12px 0;
+  }
+
+  &__log-in {
+    padding: 15px 0;
+  }
+
+  &__create {
+    padding: 15px 0;
+  }
+
+  &__field {
+    margin: 12px 0;
+    text-align: center;
+    border: 0;
+    border-radius: 5px;
+    font-size: 20px;
+    font-family: "VT323", monospace;
+  }
+
+  &__btn {
+    border: 0;
+    border-radius: 5px;
+    font-size: 20px;
+    background: #f7ffb9;
+    padding: 7px 20px;
+    color: #a13838;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-family: "VT323", monospace;
+  }
+}

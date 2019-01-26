@@ -1,0 +1,27 @@
+{
+  "name": "home_js_5_this",
+  "version": "1.0.0",
+  "description": "[link](https://bartushak007.github.io/home_js_5_this/)",
+  "main": "slider.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bartushak007/home_js_5_this.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.26.3",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^6.0.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2"
+  },
+  "bugs": {
+    "url": "https://github.com/bartushak007/home_js_5_this/issues"
+  },
+  "homepage": "https://github.com/bartushak007/home_js_5_this#readme"
+}
