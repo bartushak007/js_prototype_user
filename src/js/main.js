@@ -1,9 +1,4 @@
-function User(name, id, password, repeatPassword) {
-  this.id = id();
-  this.role = 'user';
-  this.name = name;
-  this.password = password;
-}
+function User() {}
 
 User.prototype = {
   _headerUserName: document.querySelector('.header__user-name'), 
@@ -12,6 +7,12 @@ User.prototype = {
   _registration: document.querySelector('.registration'),
   _addNews: document.querySelector('.add-news'),
   _deleteNews: document.querySelector('.delete-news'),
+  createUser: function(name, id, password) {
+    this.id = id();
+    this.role = 'user';
+    this.name = name;
+    this.password = password;
+  },
   showNews: function() {
     this._news.classList.remove('js-none');
   },
@@ -25,22 +26,27 @@ User.prototype = {
   hide: function() {
     this._registration.classList.add('js-none');
   },
-  logOut: function() {
+  logOut: function() {    
     signed = 0;
-    localStrg.removeItem('user');
+    localStorage.removeItem('user');
     this._news.classList.add('js-none');
     this._registration.classList.remove('js-none');
     this._headerUserName.classList.add('js-none');
     this._header.classList.add('js-none');
-  }
+  },
+  clearForms: function() {
+    document.querySelectorAll('.js-validation__form').forEach(function(elem) {
+      elem.reset();
+    });
+  }  
 };
 
-function Visitor(name, password, confirmPassword) {
-  User.apply(this, arguments);
+function Visitor(name, id, password, confirmPassword) {
+  User.prototype.createUser.apply(this, arguments);
 }
 
-function Admin(name, password, confirmPassword) {
-  User.apply(this, arguments);
+function Admin(name, id, password, confirmPassword) {
+  User.prototype.createUser.apply(this, arguments);
   this.role = 'admin';
 }
 
@@ -78,39 +84,40 @@ Admin.prototype.logOut = function() {
 var setId = counter();
 var usersArray = [];
 var signed;
-var createObjForm = document.forms.createAccount;
-var localStrg = window.localStorage;
-var logOut = document.querySelector('.log-out');
-var signIn = document.forms.signIn;
+var createUserForm = document.forms.createAccount;
+var localStorage = window.localStorage;
+var logOutBtn = document.querySelector('.log-out');
+var signInForm = document.forms.signIn;
 
 usersArray.push(new Visitor('Ronny', setId, '123', '123'));
 usersArray.push(new Admin('Adam', setId, '123', '123'));
 
-createObjForm.addEventListener('formIsValid', function() {
-  if (
-    createObjForm.elements.password.value === createObjForm.elements.confirmPassword.value) {
-    if (createObjForm.elements.isAdmin.checked) {
-      usersArray.push(new Admin(createObjForm.elements.firstName.value, setId, createObjForm.elements.password.value, createObjForm.elements.confirmPassword.value));
-      logined(createObjForm.elements.firstName.value, createObjForm.elements.password.value);
+createUserForm.addEventListener('formIsValid', function() {
+  if (createUserForm.elements.password.value === createUserForm.elements.confirmPassword.value) {
+    console.log(createUserForm.elements.confirmPassword.value)
+    if (createUserForm.elements.isAdmin.checked) {
+      usersArray.push(new Admin(createUserForm.elements.firstName.value, setId, createUserForm.elements.password.value, createUserForm.elements.confirmPassword.value));
+      signedUser(createUserForm.elements.firstName.value, createUserForm.elements.password.value);
     } else {
-      usersArray.push(new Visitor(createObjForm.elements.firstName.value, setId, createObjForm.elements.password.value, createObjForm.elements.confirmPassword.value));
-      logined(createObjForm.elements.firstName.value, createObjForm.elements.password.value);
+      usersArray.push(new Visitor(createUserForm.elements.firstName.value, setId, createUserForm.elements.password.value, createUserForm.elements.confirmPassword.value));
+      signedUser(createUserForm.elements.firstName.value, createUserForm.elements.password.value);
     }
     console.log(usersArray);
   }
 });
 
-logOut.addEventListener('click', function() {
-  signed.logOut();
+logOutBtn.addEventListener('click', function() {  
+  signed.clearForms();
+  signed.logOut();        
 });
 
-signIn.addEventListener('formIsValid', function() {
-  logined(signIn.elements.name.value, signIn.elements.password.value);
+signInForm.addEventListener('formIsValid', function() {
+  signedUser(signIn.elements.name.value, signIn.elements.password.value);
 });
 
-if (localStrg.user) {
+if (localStorage.user) {
   for (var i = 0; i < usersArray.length; i++) {
-    if (usersArray[i]['name'] === localStrg.user) {        
+    if (usersArray[i]['name'] === localStorage.user) {        
       signed = usersArray[i];
       signed.showName();
       signed.showHeader();
@@ -122,8 +129,8 @@ if (localStrg.user) {
 
 function signedUser(checkName, checkPassword) {
   for (var i = 0; i < usersArray.length; i++) {    
-    if (usersArray[i]['name'] == checkName && usersArray[i]['password'] == checkPassword) {      
-      localStrg.setItem('user', checkName);
+    if (usersArray[i]['name'] === checkName && usersArray[i]['password'] === checkPassword) {      
+      localStorage.setItem('user', checkName);
       signed = usersArray[i];
       signed.showName();
       signed.showHeader();
@@ -141,9 +148,5 @@ function counter() {
   };
 }
 
-function logined(x, y) {
-  if (x && y) {
-    signedUser(x, y);     
-  }
-}
+
 

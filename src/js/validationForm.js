@@ -18,7 +18,7 @@
       var evFocus = ev.target;
 
       if (evFocus.tagName === 'INPUT') {
-        evFocus.classList.remove('errorField');;        
+        evFocus.classList.remove('errorField');       
       }
     }, true);
 
@@ -71,7 +71,7 @@
 
             if (targetElem.classList.contains('js-confirm')) {              
               var compareElementId = targetElem.getAttribute('data-confirmId')
-              checkField(targetElem, 0, 'The password address must be the same as the e-mail above', document.getElementById(compareElementId));
+              checkField(targetElem, 0, 'The password must be the same as the password above', document.getElementById(compareElementId));
             }
           }     
 
