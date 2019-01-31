@@ -94,15 +94,14 @@ usersArray.push(new Admin('Adam', setId, '123', '123'));
 
 createUserForm.addEventListener('formIsValid', function() {
   if (createUserForm.elements.password.value === createUserForm.elements.confirmPassword.value) {
-    console.log(createUserForm.elements.confirmPassword.value)
+    
     if (createUserForm.elements.isAdmin.checked) {
       usersArray.push(new Admin(createUserForm.elements.firstName.value, setId, createUserForm.elements.password.value, createUserForm.elements.confirmPassword.value));
       signedUser(createUserForm.elements.firstName.value, createUserForm.elements.password.value);
     } else {
       usersArray.push(new Visitor(createUserForm.elements.firstName.value, setId, createUserForm.elements.password.value, createUserForm.elements.confirmPassword.value));
       signedUser(createUserForm.elements.firstName.value, createUserForm.elements.password.value);
-    }
-    console.log(usersArray);
+    }    
   }
 });
 
