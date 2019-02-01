@@ -41,11 +41,11 @@ User.prototype = {
   }  
 };
 
-function Visitor(name, id, password, confirmPassword) {
+function Visitor() {
   User.prototype.createUser.apply(this, arguments);
 }
 
-function Admin(name, id, password, confirmPassword) {
+function Admin() {
   User.prototype.createUser.apply(this, arguments);
   this.role = 'admin';
 }
@@ -89,17 +89,17 @@ var localStorage = window.localStorage;
 var logOutBtn = document.querySelector('.log-out');
 var signInForm = document.forms.signIn;
 
-usersArray.push(new Visitor('Ronny', setId, '123', '123'));
-usersArray.push(new Admin('Adam', setId, '123', '123'));
+usersArray.push(new Visitor('Ronny', setId, '123'));
+usersArray.push(new Admin('Adam', setId, '123'));
 
 createUserForm.addEventListener('formIsValid', function() {
   if (createUserForm.elements.password.value === createUserForm.elements.confirmPassword.value) {
     
     if (createUserForm.elements.isAdmin.checked) {
-      usersArray.push(new Admin(createUserForm.elements.firstName.value, setId, createUserForm.elements.password.value, createUserForm.elements.confirmPassword.value));
+      usersArray.push(new Admin(createUserForm.elements.firstName.value, setId, createUserForm.elements.password.value));
       signedUser(createUserForm.elements.firstName.value, createUserForm.elements.password.value);
     } else {
-      usersArray.push(new Visitor(createUserForm.elements.firstName.value, setId, createUserForm.elements.password.value, createUserForm.elements.confirmPassword.value));
+      usersArray.push(new Visitor(createUserForm.elements.firstName.value, setId, createUserForm.elements.password.value));
       signedUser(createUserForm.elements.firstName.value, createUserForm.elements.password.value);
     }    
   }
