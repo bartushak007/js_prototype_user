@@ -120,7 +120,7 @@ SignUp.prototype.createEmail = function(name, id, className) {
     email.classList.add(className);
   }
 
-  email.type = 'emil'; 
+  email.type = 'email'; 
   email.name = name;
   email.id = id;   
   this._form.appendChild(email);
@@ -129,9 +129,7 @@ SignUp.prototype.createEmail = function(name, id, className) {
 
 var signIn = new SignIn();
 signIn.createForm('', '', 'form');
-signIn.createBr();
 signIn.createTitle('title');
-signIn.createBr();
 signIn.createLabel('name', 'Type your first name', 'label');
 signIn.createLogin('name','name');
 signIn.createBr();
@@ -144,7 +142,6 @@ signIn.createBtn('btn');
 var signUp = new SignUp();
 signUp.createForm('', '', 'form');
 signUp.createTitle('title');
-signUp.createBr();
 signUp.createLabel('signUpName', 'Type your first name', 'label');
 signUp.createLogin('name','signUpName');
 signUp.createBr();
